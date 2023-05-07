@@ -6,9 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>My first dynamic Website</title>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <nav>
+        <a href="#">Home</a>
+        <a href="titanic.html">Titanic</a>
+        <a href="https://github.com/mlozanog96">About</a>
+    </nav>
+
 </head>
 
 <body>
+    <h1>HOME PAGE</h1>
     <main>
         <h1>I have been seen {{ count }} times.</h1>
         <ul>
@@ -16,7 +23,16 @@
             <li>{{ i }}: Hello {{ name }}! </li>
             {% endfor %}
         </ul>
+        <h2>Link</h2>
+        <a href="https://www.hwr-berlin.de/">HWR Berlin Homepage</a>
+        <h2>Image</h2>
+        <img alt="HWR Berlin" src="images/hwrberlin.png" />
     </main>
 </body>
+
+<footer>
+    <p>María Hubaldina Lozano González</p>
+    <p><a href="mailto:marylozanogzz@gmail.com">marylozanogzz@gmail.com</a></p>
+</footer>
 
 </html>
