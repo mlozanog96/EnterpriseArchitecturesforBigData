@@ -31,7 +31,7 @@ def header_titanic():
 def barchart_titanic():
     df = pd.read_csv('titanic.csv')
     survival_counts = df.groupby(['Sex', 'Survived'])['PassengerID'].count()
-    fig, ax = plt.subplots()
+    fig, ax = plt.pyplot.subplots()
     survival_counts.unstack().plot(kind='bar', ax=ax)
     ax.set_title('Survival Counts by Sex')
     ax.set_xlabel('Sex')
@@ -51,8 +51,6 @@ def titanic():
 def titanic_barchart():
     chart = barchart_titanic()
     return render_template('titanic.html', name= "BIPM", chart = chart)
-
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=80, debug=True)
