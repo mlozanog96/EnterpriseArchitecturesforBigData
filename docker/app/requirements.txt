@@ -4,3 +4,4 @@ python-dotenv
 pandas
 matplotlib
 mpld3
+IPython

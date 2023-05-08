@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import pandas as pd
 import matplotlib.pyplot as plt
 import mpld3
+from IPython.display import HTML
 
 
 load_dotenv() 
@@ -26,33 +27,30 @@ def get_hit_count():
             
 
 def header_titanic():
-    df = pd.read_csv('titanic.csv')
-    table_html = df.head().to_html(index=False)
+    df = pd.read_csv('/app/templates/titanic.csv')
+    table_html = df.head().to_html(index=True)
     return table_html
 
 def barchart_titanic():
-    df = pd.read_csv('titanic.csv')
-    survival_counts = df.groupby(['Sex', 'Survived'])['PassengerID'].count()
-    fig, ax = plt.pyplot.subplots()
+    df = pd.read_csv('/app/templates/titanic.csv')
+    survival_counts = df.groupby(['Sex', 'Survived'])['PassengerId'].count()
+    fig, ax = plt.subplots()
     survival_counts.unstack().plot(kind='bar', ax=ax)
     ax.set_title('Survival Counts by Sex')
     ax.set_xlabel('Sex')
     ax.set_ylabel('Count')
-    bar_chart_html= mpld3.fig_to_html(fig)
-    return bar_chart_html
+    bar_chart_html = HTML(mpld3.fig_to_html(fig))
 
 @app.route('/')
-#def hello():
-    #count = get_hit_count()
-    #return render_template('hello.html', name= "BIPM", count = count)
+def hello():
+    count = get_hit_count()
+    return render_template('hello.html', name= "BIPM", count = count)
 
 def titanic():
     table = header_titanic()
-    return render_template('/app/templates/titanic.html', name= "BIPM", table = table)
-
-def titanic_barchart():
     chart = barchart_titanic()
-    return render_template('/app/templates/titanic.html', name= "BIPM", chart = chart)
+    return render_template('titanic.html', name= "BIPM", table = table, chart = chart)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=80, debug=True)

@@ -17,11 +17,11 @@
     <h1>TITANIC PAGE</h1>
     <main>
         <h1>Titanic Data</h1>
-        <table>
-            {{table}}
-        </table>
+        
+            {{ table | safe}}
+        
         <h2> Bar chart</h2>
-        {{chart}}
+        {{ chart | safe }}
     </main>
 </body>
 
