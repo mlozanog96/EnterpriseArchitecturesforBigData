@@ -42,17 +42,18 @@ def barchart_titanic():
     return bar_chart_html
 
 @app.route('/')
-def hello():
-    count = get_hit_count()
-    return render_template('hello.html', name= "BIPM", count = count)
+#def hello():
+    #count = get_hit_count()
+    #return render_template('hello.html', name= "BIPM", count = count)
 
 def titanic():
     table = header_titanic()
-    return render_template('titanic.html', name= "BIPM", table = table)
+    return render_template('/app/templates/titanic.html', name= "BIPM", table = table)
 
 def titanic_barchart():
     chart = barchart_titanic()
-    return render_template('titanic.html', name= "BIPM", chart = chart)
+    return render_template('/app/templates/titanic.html', name= "BIPM", chart = chart)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=80, debug=True)
+    app.use_static_for_url('/app/templates', static_folder='templates')
