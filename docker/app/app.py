@@ -22,6 +22,8 @@ def get_hit_count():
                 raise exc
             retries -= 1
             time.sleep(0.5)
+            return 
+            
 
 def header_titanic():
     df = pd.read_csv('titanic.csv')
