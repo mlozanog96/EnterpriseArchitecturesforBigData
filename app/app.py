@@ -27,12 +27,12 @@ def get_hit_count():
             
 
 def header_titanic():
-    df = pd.read_csv('/app/templates/titanic.csv')
+    df = pd.read_csv('/app/templates/static/titanic.csv')
     table_html = df.head().to_html(index=True)
     return table_html
 
 def barchart_titanic():
-    df = pd.read_csv('/app/templates/titanic.csv')
+    df = pd.read_csv('/app/templates/static/titanic.csv')
     survival_counts = df.groupby(['Sex', 'Survived'])['PassengerId'].count()
     fig, ax = plt.subplots()
     survival_counts.unstack().plot(kind='bar', ax=ax)
