@@ -42,8 +42,8 @@ def barchart_titanic():
 
 @app.route('/')
 def hello():
-    count = get_hit_count()
-    return render_template('hello.html', name= "BIPM", count = count)
+    #count = get_hit_count()
+    return render_template('hello.html', name= "BIPM")
 
 def titanic():
     table = header_titanic()
